@@ -15,7 +15,7 @@ Es werden Vorlagen aus dem Modul "Künstliche Intelligenz" verwendet und zudem w
 ## Projektübersicht
 Dieses Projekt zur Erkennung von SQL-Injection-Angriffen nutzt maschinelles Lernen, um SQL-Injection-Angriffe anhand von Benutzereingaben zu identifizieren.
 
-Die **Daten** stammen von [Kaggle: SQL Injection Dataset](https://www.kaggle.com/datasets/syedsaqlainhussain/sql-injection-dataset), das SQL-Injection-Strings sowie normale Benutzereingaben enthält. Die Daten wurden aufbereitet und in **Trainingsdaten** und **Testdaten** aufgeteilt, um das Modell zu trainieren und zu evaluieren.
+Die **Daten** stammen von [Kaggle: SQL Injection Dataset](https://www.kaggle.com/datasets/syedsaqlainhussain/sql-injection-dataset). Dieses Dataset enthält SQL-Injection-Strings sowie normale Benutzereingaben. Die Daten wurden aufbereitet und in **Trainingsdaten** und **Testdaten** aufgeteilt, um das Modell zu trainieren und zu evaluieren.
 
 --------
 
@@ -29,7 +29,7 @@ sqli-detection-ml/
 │   ├── raw/
 │   │   └── SQLiV3.csv             # Rohdaten
 │   ├── processed/                 
-│   │   └── SQLiV3-processed.csv   # Bereinigte Datn (generierte Datei)
+│   │   └── SQLiV3-processed.csv   # Bereinigte Daten (generierte Datei)
 │   ├── data-train.csv             # Trainingsdaten (generierte Datei)
 │   └── data-test.csv              # Testdaten (generierte Datei)
 │   └── README-data.md             
@@ -82,25 +82,25 @@ pip install -r requirements.txt
 
 ### Nutzung
 
-1. **Daten bereinigen**:
+1. **Daten bereinigen**: _(optional)_
 ```bash
 python helper/format_data.py
 ```
-2. **Daten aufteilen**:
+2. **Daten aufteilen**: _(optional)_
  ```bash
 python helper/split_data.py
 ```
-3. **Modell trainieren**:
+3. **Modell trainieren**: _(optional, aber es können im Script `training/svm_model.py` Parameter verändert werden, um bessere Ergebnisse zu erzielen)_
 ```bash
 python main.py train
 ```
-4. **Modell testen**:
+4. **Modell testen**: _(optional)_
 ```bash
 python main.py test
 ```
 5. **Vorhersage durchführen**:
 ```
-python main.py predict --query "DEINE_BEISPIEL_EINGABE"
+python main.py predict --query "BEISPIEL_EINGABE"
 ```
 Beispiel: 
 
