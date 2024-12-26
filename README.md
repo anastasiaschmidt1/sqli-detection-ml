@@ -2,20 +2,20 @@
 
 --------
 
-## 🚨 **Wichtige Anmerkung** 🚨
+##  **Wichtig**
 
 **Dieses Projekt wurde im Rahmen des Moduls "Wissenschaftliches Projekt" an der Berliner Hochschule für Technik (BHT) im Wintersemester 2024/2025 erstellt.**
 
-Es werden Vorlagen aus dem Modul **"Künstliche Intelligenz"** verwendet und zudem wurde das Projekt mit Hilfe von **ChatGPT**😱 entwickelt und ist komplett in **Deutsch**😱😱.
+Es werden Vorlagen aus dem Modul "Künstliche Intelligenz" verwendet und zudem wurde das Projekt mithilfe von **ChatGPT** entwickelt und ist komplett in **Deutsch**.
 
-**⚠️ Es wird darauf hingewiesen, dass dieses Projekt keine Garantie auf die Qualität oder die fehlerfreie Funktion des Codes gibt. Jegliche Nutzung des Projekts erfolgt auf **eigene Verantwortung****
+**⚠️ Es wird darauf hingewiesen, dass dieses Projekt keine Garantie auf die Qualität oder die fehlerfreie Funktion des Codes gibt. Jegliche Nutzung des Projekts erfolgt auf eigene Verantwortung**
 
 --------
 
 ## Projektübersicht
-Dieses Projekt zur Erkennung von SQL-Injection-Angriffen nutzt maschinelles Lernen (SVM-Modell), um SQL-Injection-Angriffe anhand von Benutzereingaben zu identifizieren.
+Dieses Projekt zur Erkennung von SQL-Injection-Angriffen nutzt maschinelles Lernen, um SQL-Injection-Angriffe anhand von Benutzereingaben zu identifizieren.
 
-Die **Daten** stammen von [Kaggle: SQL Injection Dataset](https://www.kaggle.com/datasets/syedsaqlainhussain/sql-injection-dataset), das SQL-Injection-Strings sowie normale Benutzereingaben enthält. Nach der Bereinigung werden die Daten in **Trainingsdaten** und **Testdaten** aufgeteilt, um das Modell zu trainieren und zu evaluieren.
+Die **Daten** stammen von [Kaggle: SQL Injection Dataset](https://www.kaggle.com/datasets/syedsaqlainhussain/sql-injection-dataset), das SQL-Injection-Strings sowie normale Benutzereingaben enthält. Die Daten wurden aufbereitet und in **Trainingsdaten** und **Testdaten** aufgeteilt, um das Modell zu trainieren und zu evaluieren.
 
 --------
 
@@ -26,10 +26,10 @@ Das Projekt ist wie folgt strukturiert:
 sqli-detection-ml/
 │
 ├── data/                         
-│   ├── raw/                       # Rohdaten
-│   │   └── SQLiV3.csv             
-│   ├── processed/                 # Bereinigte Daten (generierte Datei)
-│   │   └── SQLiV3-processed.csv  
+│   ├── raw/
+│   │   └── SQLiV3.csv             # Rohdaten
+│   ├── processed/                 
+│   │   └── SQLiV3-processed.csv   # Bereinigte Datn (generierte Datei)
 │   ├── data-train.csv             # Trainingsdaten (generierte Datei)
 │   └── data-test.csv              # Testdaten (generierte Datei)
 │   └── README-data.md             
@@ -56,26 +56,24 @@ sqli-detection-ml/
 ## Installation und Nutzung
 
 ### Getestete Umgebung
-Das Projekt wurde in **Anaconda** mit **Python 3.12.7** getestet. _(Anaconda ist eine Python-Distribution, die speziell für Data-Science- und maschinelles Lernen optimiert wurde. Sie bietet eine einfache Verwaltung von Python-Versionen und Abhängigkeiten.)_
-
-Die folgenden Versionen der Bibliotheken wurden verwendet:
-
-* **pandas: 2.2.2**
-* **scikit-learn: 1.5.1**
-* **joblib: 1.4.2**
-* **numpy: 1.26.4**
+Das Projekt wurde in **Anaconda** mit **Python 3.12.7** getestet. _(Anaconda ist eine Python-Distribution, die speziell für Data-Science- und maschinelles Lernen optimiert wurde. Sie bietet eine Verwaltung von Python-Versionen und Abhängigkeiten.)_
 
 ### Abhängigkeiten
 Das Projekt benötigt folgende Python-Pakete, die für das Datenmanagement, Modelltraining und Vorhersagen zuständig sind:
 
-**pandas:** Wird zur Verarbeitung und Manipulation von Daten verwendet. Es stellt leistungsfähige Datenstrukturen wie DataFrames zur Verfügung, die für das Projekt zur Speicherung und Analyse der SQL-Abfragen genutzt werden.
+* **pandas:** wird für Verarbeitung und Manipulation von Daten verwendet.
+* **scikit-learn:** ist eine Bibliothek für maschinelles Lernen, welche zahlreiche Algorithmen, einschließlich SVM (Support Vector Machine) enthält.
+* **joblib:** wird zur Serialisierung des Modells und des Vektorisierers verwendet. Dies ermöglicht es, das trainierte Modell und den Vektorisierer zu speichern und später wieder zu laden.
+* **numpy:** wird für numerische Berechnungen verwendet.
 
-**scikit-learn:** Wird für das maschinelle Lernen verwendet. Diese Bibliothek enthält zahlreiche Algorithmen, einschließlich SVM (Support Vector Machine), die im Projekt zur Erkennung von SQL-Injection-Angriffen eingesetzt wird.
+Zusätzlich werden noch benötigt:
 
-**joblib:** Wird zur Serialisierung des Modells und des Vektorisierers verwendet. Dies ermöglicht es, das trainierte Modell und den Vektorisierer zu speichern und später wieder zu laden.
+* **argparse** für die Auswertung von Kommandozeilenparameter.
+* **os** für die Arbeit mit Pfaden.
 
-**numpy:** Wird für numerische Berechnungen verwendet und ist eine grundlegende Bibliothek für die Arbeit mit Arrays und Matrizen, die in vielen Algorithmen von scikit-learn erforderlich sind.
+_Die getesteten Versionen sind in `requirements.txt` zu finden._
 
+### Installation
 
 Installiere alle Abhängigkeiten mit:
 ```bash
@@ -104,11 +102,12 @@ python main.py test
 ```
 python main.py predict --query "DEINE_BEISPIEL_EINGABE"
 ```
-Beispiel: Wenn du eine SQL-Abfrage vorhersagen möchtest, kannst du das Modell wie folgt verwenden:
+Beispiel: 
+
 ```bash
 python main.py predict --query "SELECT * FROM users WHERE id='1' OR 1=1 --"
 ```
-Dies gibt zurück, ob es sich um eine SQL-Injection handelt (`SQLi`) oder nicht (`Normal`).
+Die Ausgabe gibt an, ob es sich um eine SQL-Injection handelt (`SQLi`) oder nicht (`Normal`).
 
 --------
 

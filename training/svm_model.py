@@ -46,7 +46,3 @@ def train_model(train_file, model_path, vectorizer_path):
         print(f"Vektorisierer erfolgreich gespeichert: {vectorizer_path}")
     except Exception as e:
         print(f"Fehler beim Speichern: {e}")
-
-# Skript ausführen
-if __name__ == "__main__":
-    train_model(train_file, model_path, vectorizer_path)

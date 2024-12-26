@@ -47,6 +47,3 @@ def test_model(test_file, model_path, vectorizer_path):
     print(classification_report(true_labels, predictions))
     print(f"Accuracy: {accuracy_score(true_labels, predictions):.4f}")
 
-# Skript ausführen
-if __name__ == "__main__":
-    test_model(test_file, model_path, vectorizer_path)
