@@ -1,2 +1,4 @@
 /.spyproject
 /.idea
+*.pyc
+__pycache__
